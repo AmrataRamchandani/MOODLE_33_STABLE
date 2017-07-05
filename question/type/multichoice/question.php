@@ -259,7 +259,8 @@ class qtype_multichoice_single_question extends qtype_multichoice_base {
     }
 
     public function get_response(question_attempt $qa) {
-        return $qa->get_last_qt_var('answer', -1);
+    		$laststep_name=$qa->get_unfinished_step();
+    		return $qa->get_last_qt_var($laststep_name, -1);
     }
 
     public function is_choice_selected($response, $value) {

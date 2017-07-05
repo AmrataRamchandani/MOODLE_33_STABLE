@@ -370,6 +370,12 @@ class question_attempt_step {
         return $this->data;
     }
 
+    // Setting Step Data.
+    public function set_data($data){
+    	$this->data = $data;
+    }
+    
+    
     /**
      * Set a metadata variable.
      *
