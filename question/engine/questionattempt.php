@@ -1245,10 +1245,10 @@ class question_attempt {
         /** While clearing the quiz option,we are trying to bring the question attempt step data to '_order' 
          * and we could find that '_order' data only in initial step i.e step[0] **/
         
-        if( empty($submitteddata)){
-        	$step_zero_data = $this->steps[0]->get_all_data();
-        	$pendingstep->set_data($step_zero_data);
-        }
+//         if( empty($submitteddata)){
+//         	$step_zero_data = $this->steps[0]->get_all_data();
+//         	$pendingstep->set_data($step_zero_data);
+//         }
         
         if ($this->behaviour->process_action($pendingstep) == self::KEEP) {
             $this->add_step($pendingstep);

@@ -63,30 +63,46 @@ class quiz_first_or_all_responses_table extends quiz_last_responses_table {
         }
         $qubaids = $this->get_qubaids_condition();
         $dm = new question_engine_data_mapper();
-        $this->questionusagesbyactivity = $dm->load_questions_usages_by_activity($qubaids);
-
-        // Insert an extra field in attempt data and extra rows where necessary.
-        $newrawdata = array();
-        foreach ($this->rawdata as $attempt) {
-            $maxtriesinanyslot = 1;
-            foreach ($this->questionusagesbyactivity[$attempt->usageid]->get_slots() as $slot) {
-                $tries = $this->get_no_of_tries($attempt, $slot);
-                $maxtriesinanyslot = max($maxtriesinanyslot, $tries);
-            }
-            for ($try = 1; $try <= $maxtriesinanyslot; $try++) {
-                $newtablerow = clone($attempt);
-                $newtablerow->lasttryforallparts = ($try == $maxtriesinanyslot);
-                if ($try !== $maxtriesinanyslot) {
-                    $newtablerow->state = quiz_attempt::IN_PROGRESS;
-                }
-                $newtablerow->try = $try;
-                $newrawdata[] = $newtablerow;
-                if ($this->options->whichtries == question_attempt::FIRST_TRY) {
-                    break;
-                }
-            }
+        
+        if ($qubaids->usage_id_in() != '= 0') {
+        	
+        	$this->questionusagesbyactivity = $dm->load_questions_usages_by_activity($qubaids);
+        	
+        	// Insert an extra field in attempt data and extra rows where necessary.
+        	$newrawdata = array();
+        	foreach ($this->rawdata as $attempt) {
+        		$maxtriesinanyslot = 1;
+        		foreach ($this->questionusagesbyactivity[$attempt->usageid]->get_slots() as $slot) {
+        			$tries = $this->get_no_of_tries($attempt, $slot);
+        			$maxtriesinanyslot = max($maxtriesinanyslot, $tries);
+        		}
+        		for ($try = 1; $try <= $maxtriesinanyslot; $try++) {
+        			$newtablerow = clone($attempt);
+        			$newtablerow->lasttryforallparts = ($try == $maxtriesinanyslot);
+        			if ($try !== $maxtriesinanyslot) {
+        				$newtablerow->state = quiz_attempt::IN_PROGRESS;
+        			}
+        			$newtablerow->try = $try;
+        			$newrawdata[] = $newtablerow;
+        			if ($this->options->whichtries == question_attempt::FIRST_TRY) {
+        				break;
+        			}
+        		}
+        	}
+        	$this->rawdata = $newrawdata;        	
         }
-        $this->rawdata = $newrawdata;
+        else {
+        	$newrawdata = array();
+        	foreach ($this->rawdata as $attempt) {
+        		$newtablerow = clone($attempt);
+        		$newtablerow->lasttryforallparts = 0;
+        		$newtablerow->try = 0;
+        		$newrawdata[] = $newtablerow;
+        	}
+        	$this->rawdata = $newrawdata;
+        	
+        }
+        
     }
 
     /**

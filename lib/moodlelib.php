@@ -657,8 +657,8 @@ function optional_param($parname, $default, $type) {
         // TODO: switch to $default in Moodle 2.3.
         return optional_param_array($parname, $default, $type);
     }
-
-    return clean_param($param, $type);
+return $param;
+  // return clean_param($param, $type);
 }
 
 /**

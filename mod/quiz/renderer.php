@@ -856,8 +856,9 @@ class mod_quiz_renderer extends plugin_renderer_base {
         $this->page->requires->js_call_amd('mod_quiz/preflightcheck', 'init',
                 array('.quizstartbuttondiv [type=submit]', get_string('startattempt', 'quiz'),
                        '#mod_quiz_preflight_form', $popupjsoptions));
-
-        return $this->render($button) . $checkform;
+               
+                return $this->render($button) . $checkform;
+        
     }
 
     /**

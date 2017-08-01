@@ -245,3 +245,5 @@ if (isguestuser()) {
 }
 
 echo $OUTPUT->footer();
+
+
