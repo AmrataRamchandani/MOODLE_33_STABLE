@@ -15,25 +15,32 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for the quizaccess_activateattempt plugin.
+ * Capabilities
  *
- * @package    quizaccess_activateattempt
- * @author     Amrata Ramchandani <ramchandani.amrata@gmail.com>
- * @copyright  2017 Indian Institute Of Technology,Bombay,India
+ * This files lists capabilites related to report_mergefiles
+ *
+ * @package    report_mergefiles
+ * @copyright  2017 IIT Bombay
+ * @author     Kashmira Nagwekar
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
 defined('MOODLE_INTERNAL') || die();
 
+$capabilities = array(
 
-$string['attemptquiz'] = 'Attempt quiz now';
-$string['quizwillstartin'] = 'Quiz will start in';
-$string['days'] = 'days';
-$string['day'] = 'day';
-$string['hours'] = 'hours';
-$string['hour'] = 'hour';
-$string['minutes'] = 'minutes';
-$string['minute'] = 'minute';
-$string['pluginname'] = 'Auto activate quiz attempt button access rule';
+    'report/mergefiles:view' => array(
+        'riskbitmask' => RISK_PERSONAL,
+        'captype' => 'read',
+        'contextlevel' => CONTEXT_COURSE,
+        'archetypes' => array(
+//             'admin' => CAP_ALLOW,
+            'teacher' => CAP_ALLOW,
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW
+        ),
+//         'clonepermissionsfrom' => 'coursereport/log:view',
+    ),
+);
+
 

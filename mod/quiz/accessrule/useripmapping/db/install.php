@@ -15,25 +15,36 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for the quizaccess_activateattempt plugin.
- *
- * @package    quizaccess_activateattempt
- * @author     Amrata Ramchandani <ramchandani.amrata@gmail.com>
+ * Post-install script for the quizaccess_useripmapping plugin.
+ * 
+ * @package    quizaccess
+ * @subpackage useripmapping
  * @copyright  2017 Indian Institute Of Technology,Bombay,India
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
 defined('MOODLE_INTERNAL') || die();
 
-
-$string['attemptquiz'] = 'Attempt quiz now';
-$string['quizwillstartin'] = 'Quiz will start in';
-$string['days'] = 'days';
-$string['day'] = 'day';
-$string['hours'] = 'hours';
-$string['hour'] = 'hour';
-$string['minutes'] = 'minutes';
-$string['minute'] = 'minute';
-$string['pluginname'] = 'Auto activate quiz attempt button access rule';
+/**
+ * Post-install script
+ */
+function xmldb_quizaccess_useripmapping_install() {
+	global $DB;
+	
+	$dbman = $DB->get_manager();
+	
+	$record1 = new stdClass();
+	$record1->userid = 2;
+	$record1->ip = '127.0.0.1';
+	
+	$record2 = new stdClass();
+	$record2->userid = 3;
+	$record2->ip = '127.0.0.3';
+	
+	$records = array($record1, $record2);
+		
+	if ($dbman->table_exists('user_ip_mapping')) {
+		$DB->insert_records('user_ip_mapping', $records);
+	} 
+}
 

@@ -64,7 +64,7 @@ class quiz_first_or_all_responses_table extends quiz_last_responses_table {
         $qubaids = $this->get_qubaids_condition();
         $dm = new question_engine_data_mapper();
         
-        if ($qubaids->usage_id_in() != '= 0') {
+       
         	
         	$this->questionusagesbyactivity = $dm->load_questions_usages_by_activity($qubaids);
         	
@@ -90,18 +90,7 @@ class quiz_first_or_all_responses_table extends quiz_last_responses_table {
         		}
         	}
         	$this->rawdata = $newrawdata;        	
-        }
-        else {
-        	$newrawdata = array();
-        	foreach ($this->rawdata as $attempt) {
-        		$newtablerow = clone($attempt);
-        		$newtablerow->lasttryforallparts = 0;
-        		$newtablerow->try = 0;
-        		$newrawdata[] = $newtablerow;
-        	}
-        	$this->rawdata = $newrawdata;
-        	
-        }
+      
         
     }
 

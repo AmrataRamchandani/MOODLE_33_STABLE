@@ -13,21 +13,31 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle. If not, see <http://www.gnu.org/licenses/>.
+defined('MOODLE_INTERNAL') || die();
+
+require_once ($CFG->libdir . '/formslib.php');
 
 /**
- * Version information for the quizaccess_activateattempt plugin.
+ * Perform merge form.
  *
- * @package   quizaccess_activateattempt
- * @author    Amrata Ramchandani,<ramchandani.amrata@gmail.com>
- * @copyright 2017 Indian Institute Of Technology,Bombay,India
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     report_mergefiles
+ * @copyright   2017 IIT Bombay
+ * @author      Kashmira Nagwekar
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+class performmerge_form extends moodleform {
 
+    /**
+     * Form definition method.
+     */
+    function definition() {
+        global $CFG;
+        $mform = $this->_form;
 
-defined ( 'MOODLE_INTERNAL' ) || die ();
+        $mform->addElement('hidden', 'courseid');
+        $mform->setType('courseid', PARAM_INT);
 
-$plugin->version = 2017051500;
-$plugin->requires = 2017050500;
-$plugin->component = 'quizaccess_activateattempt';
-$plugin->maturity  = MATURITY_RC;
-$plugin->release   = '1.0.2';
+        $submitstring = "Merge pdf files";
+        $mform->addElement('submit', 'save', $submitstring);
+    }
+}

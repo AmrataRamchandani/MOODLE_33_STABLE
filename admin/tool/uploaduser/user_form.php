@@ -38,6 +38,7 @@ class admin_uploaduser_form1 extends moodleform {
     function definition () {
         $mform = $this->_form;
 
+        
         $mform->addElement('header', 'settingsheader', get_string('upload'));
 
         $mform->addElement('filepicker', 'userfile', get_string('file'));

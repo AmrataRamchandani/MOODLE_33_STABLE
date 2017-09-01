@@ -15,19 +15,19 @@
 // along with Moodle. If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information for the quizaccess_activateattempt plugin.
+ * Version info
  *
- * @package   quizaccess_activateattempt
- * @author    Amrata Ramchandani,<ramchandani.amrata@gmail.com>
- * @copyright 2017 Indian Institute Of Technology,Bombay,India
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * This file contains version information about report_mergefiles
+ *
+ * @package     report_mergefiles
+ * @copyright   2017 IIT Bombay
+ * @author      Kashmira Nagwekar
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+defined('MOODLE_INTERNAL') || die();
 
-
-defined ( 'MOODLE_INTERNAL' ) || die ();
-
-$plugin->version = 2017051500;
-$plugin->requires = 2017050500;
-$plugin->component = 'quizaccess_activateattempt';
-$plugin->maturity  = MATURITY_RC;
-$plugin->release   = '1.0.2';
+$plugin->version    = 2017080100;   // The current module version (Date: YYYYMMDDXX)
+$plugin->requires   = 2017033100;   // Requires this Moodle version
+$plugin->component  = 'report_mergefiles'; // Full name of the plugin (used for diagnostics)
+$plugin->maturity   = MATURITY_ALPHA;
+$plugin->release    = 'v3.2.2+ - r2';    // This is our second revision for Moodle 3.2.2+ and above branches.

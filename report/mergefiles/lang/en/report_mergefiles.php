@@ -15,19 +15,16 @@
 // along with Moodle. If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information for the quizaccess_activateattempt plugin.
+ * Strings for component 'report_mergefiles', language 'en'
  *
- * @package   quizaccess_activateattempt
- * @author    Amrata Ramchandani,<ramchandani.amrata@gmail.com>
- * @copyright 2017 Indian Institute Of Technology,Bombay,India
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     report_mergefiles
+ * @copyright   2017 IIT Bombay
+ * @author      Kashmira Nagwekar
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-
-defined ( 'MOODLE_INTERNAL' ) || die ();
-
-$plugin->version = 2017051500;
-$plugin->requires = 2017050500;
-$plugin->component = 'quizaccess_activateattempt';
-$plugin->maturity  = MATURITY_RC;
-$plugin->release   = '1.0.2';
+$string['heading'] = "Course files";
+$string['note'] = "(Note: Files in pdf format only)";
+$string['pluginname'] = 'Merge PDF Files';
+$string['mergefiles:view'] = 'View merged pdf file';
+$string['mergedpdfdoc'] = 'Merged PDF Document';
+$string['availablehere'] = 'Available here!';

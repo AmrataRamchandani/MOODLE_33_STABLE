@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for the quizaccess_activateattempt plugin.
+ * Version information for the quizaccess_ipaddress plugin.
  *
- * @package    quizaccess_activateattempt
- * @author     Amrata Ramchandani <ramchandani.amrata@gmail.com>
+ * @package    quizaccess
+ * @subpackage useripmapping
  * @copyright  2017 Indian Institute Of Technology,Bombay,India
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,13 +27,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 
-$string['attemptquiz'] = 'Attempt quiz now';
-$string['quizwillstartin'] = 'Quiz will start in';
-$string['days'] = 'days';
-$string['day'] = 'day';
-$string['hours'] = 'hours';
-$string['hour'] = 'hour';
-$string['minutes'] = 'minutes';
-$string['minute'] = 'minute';
-$string['pluginname'] = 'Auto activate quiz attempt button access rule';
-
+$plugin->version   = 2017051500;
+$plugin->requires  = 2017050500;
+$plugin->component = 'quizaccess_useripmapping';

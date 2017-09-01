@@ -74,13 +74,20 @@ class edit_renderer extends \plugin_renderer_base {
         $output .= $this->selectmultiple_controls($structure);
         $output .= html_writer::end_tag('div');
 
+        
         // Show the questions organised into sections and pages.
         $output .= $this->start_section_list($structure);
+        
+        
 
         foreach ($structure->get_sections() as $section) {
             $output .= $this->start_section($structure, $section);
+            
+            
+            
             $output .= $this->questions_in_section($structure, $section, $contexts, $pagevars, $pageurl);
 
+            
             if ($structure->is_last_section($section)) {
                 $output .= \html_writer::start_div('last-add-menu');
                 $output .= html_writer::tag('span', $this->add_menu_actions($structure, 0,
@@ -93,6 +100,10 @@ class edit_renderer extends \plugin_renderer_base {
 
         $output .= $this->end_section_list();
 
+      
+       
+     
+        
         // Initialise the JavaScript.
         $this->initialise_editing_javascript($structure, $contexts, $pagevars, $pageurl);
 
@@ -1022,7 +1033,6 @@ class edit_renderer extends \plugin_renderer_base {
                 $this->pix_icon('t/editstring', '', 'moodle', array('class' => 'editicon visibleifjs', 'title' => '')),
                 array(
                     'class' => 'editing_maxmark',
-                    'data-action' => 'editmaxmark',
                     'title' => get_string('editmaxmark', 'quiz'),
                 )
             )

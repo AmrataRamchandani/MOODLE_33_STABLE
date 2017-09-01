@@ -322,6 +322,7 @@ class quiz_access_manager {
      */
     public function prevent_new_attempt($numprevattempts, $lastattempt) {
         $reasons = array();
+        
         foreach ($this->rules as $rule) {
             $reasons = $this->accumulate_messages($reasons,
                     $rule->prevent_new_attempt($numprevattempts, $lastattempt));

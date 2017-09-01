@@ -15,25 +15,21 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for the quizaccess_activateattempt plugin.
+ * Links and settings
  *
- * @package    quizaccess_activateattempt
- * @author     Amrata Ramchandani <ramchandani.amrata@gmail.com>
- * @copyright  2017 Indian Institute Of Technology,Bombay,India
+ * This file contains links and settings used by report_mergefiles
+ *
+ * @package    report_mergefiles
+ * @copyright  2017 IIT Bombay
+ * @author     Kashmira Nagwekar
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die;
 
-defined('MOODLE_INTERNAL') || die();
+// Just a link to course report.
+$ADMIN->add('reports', new admin_externalpage('reportmergefiles', get_string('pluginname', 'report_mergefiles'),
+        "$CFG->wwwroot/report/mergefiles/index.php", 'report/mergefiles:view'));
 
-
-$string['attemptquiz'] = 'Attempt quiz now';
-$string['quizwillstartin'] = 'Quiz will start in';
-$string['days'] = 'days';
-$string['day'] = 'day';
-$string['hours'] = 'hours';
-$string['hour'] = 'hour';
-$string['minutes'] = 'minutes';
-$string['minute'] = 'minute';
-$string['pluginname'] = 'Auto activate quiz attempt button access rule';
-
+// No report settings.
+$settings = null;
